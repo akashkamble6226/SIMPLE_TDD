@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/business_logic/notes_cubit.dart';
 import 'package:notes/business_logic/state.dart';
+import 'package:notes/models/note.dart';
 import 'package:notes/pages/note_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,6 +29,7 @@ class HomePage extends StatelessWidget {
             return ListTile(
               title: Text(note.title),
               subtitle: Text(note.body),
+              onTap: ()=> _goToNotePage(context,note:note),
             );
           },
         ),
@@ -40,10 +42,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _goToNotePage(BuildContext context) => Navigator.push(
+
+  // Note object is nullabel
+  _goToNotePage(BuildContext context, {  Note? note}) => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => NotePage(notesCubit: notesCubit),
+          builder: (context) => NotePage(notesCubit: notesCubit, note:note),
         ),
       );
 }

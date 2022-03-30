@@ -24,5 +24,10 @@ class NotesCubit extends Cubit<NotesState> {
   void updateNote(int id, String title, String body) {
     var notesIndex = _notes.indexWhere((element) => element.id == id);
     _notes.replaceRange(notesIndex, notesIndex + 1, [Note(id, title, body)]);
+     emit(NotesState(UnmodifiableListView(_notes)));
+     
   }
+
+  //  _emit() => emit(NotesState(UnmodifiableListView(_notes)));
+  _emit() => emit(NotesState(UnmodifiableListView(_notes)));
 }

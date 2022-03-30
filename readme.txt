@@ -1,10 +1,29 @@
-Step 1 - create test for business logic 
-Step 2 - create code for successfully running the test of business logic
-Step 3 - create test for homepage
-step 4 - created home_page_test 
-step 5 - trying to do the Homepage code (continue)
-step 6 - completed the homepage Ui code as per test case 
-step 7 - writing test for adding new note (which is adding new page)
-step 8 - wrote Ui to satisfy the test 
+https://arctouch.com/blog/flutter-test-driven-development/
 
-Step 6: Add a test for note creation (ongoing)
+A unit test of a single function, method, or class.
+A widget test for a single widget.
+An integration test for a complete app or a large part of an app.
+
+Ideally, an app should have enough unit tests to cover the business logic, 
+widget tests to cover how UI reacts to business logic state changes, 
+and integration tests to cover higher-level use cases.
+
+* Our app user requirements are:
+
+1) Users can see a list of the notes.
+2) Users can create a note.
+3) Users can edit a note.
+4) Users can delete a note.
+
+* tester.pumpWidget -> Calls runApp with the given widget.
+* expect(find.text('Enter your text here...'), findsOneWidget); -> here tester is expecting one widget which has this text
+* tester.enterText(find.byKey(const ValueKey('title')), 'hi');
+-> 
+   one widget has key named title in that widget write the text as 'hi'
+* await tester.tap(find.byType(TextButton));
+-> 
+  finding the TextButton type button and then tapping on it
+
+* await tester.pumpAndSettle();
+????????????????
+ 
